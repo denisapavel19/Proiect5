@@ -7,8 +7,8 @@
             public string prenume { set; get; }
             public string nr_tel { set; get; }
             public string email { set; get; }
-            
-        }
+        public ICollection<Elev>? elev { get; set; }
+    }
     }
 
     

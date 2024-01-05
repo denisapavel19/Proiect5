@@ -1,0 +1,132 @@
+﻿@page
+@model Proiect5.Pages.Elevi.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    tbody tr:last-child {
+        background-color: #ffc0cb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f0e6f5;
+    }
+
+    th, td {
+        color: #fff;
+    }
+
+    input[type="submit"] {
+        background-color: #d8bf;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #ffb6c1;
+        }
+
+    .button.create,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.create:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Editare detalii</h1>
+
+<h4>Elev</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Elev.id" />
+            <div class="form-group">
+                <label asp-for="Elev.nume" class="control-label"></label>
+                <input asp-for="Elev.nume" class="form-control" />
+                <span asp-validation-for="Elev.nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.prenume" class="control-label"></label>
+                <input asp-for="Elev.prenume" class="form-control" />
+                <span asp-validation-for="Elev.prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.varsta" class="control-label"></label>
+                <input asp-for="Elev.varsta" class="form-control" />
+                <span asp-validation-for="Elev.varsta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.clasa" class="control-label"></label>
+                <input asp-for="Elev.clasa" class="form-control" />
+                <span asp-validation-for="Elev.clasa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.nr_tel" class="control-label"></label>
+                <input asp-for="Elev.nr_tel" class="form-control" />
+                <span asp-validation-for="Elev.nr_tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.email" class="control-label"></label>
+                <input asp-for="Elev.email" class="form-control" />
+                <span asp-validation-for="Elev.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.scoala" class="control-label"></label>
+                <input asp-for="Elev.scoala" class="form-control" />
+                <span asp-validation-for="Elev.scoala" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elev.parinteid" class="control-label"></label>
+                <select asp-for="Elev.parinteid" class="form-control" asp-items="ViewBag.parinteid"></select>
+                <span asp-validation-for="Elev.parinteid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvează" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="button back">Înapoi</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

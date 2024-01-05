@@ -1,6 +1,6 @@
 ﻿@page
-@model Proiect5.Pages.Parinti.IndexModel
-@using Proiect5.Models
+@model Proiect5.Pages.Elevi.IndexModel
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -71,40 +71,58 @@
             background-color: #d8bf;
         }
 </style>
-<h1>Listă părinți</h1>
+<h1>Listă elevi</h1>
 
 <p>
     <a asp-page="Create" class="button create">
-        Adaugă părinte
+        Adaugă elev
     </a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Parinte[0].nume)
+                @Html.DisplayNameFor(model => model.Elev[0].nume)
+                
             </th>
             
             <th>
-                @Html.DisplayNameFor(model => model.Parinte[0].nr_tel)
+                @Html.DisplayNameFor(model => model.Elev[0].varsta)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Parinte[0].email)
+                @Html.DisplayNameFor(model => model.Elev[0].clasa)
             </th>
-            
-            
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elev[0].nr_tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elev[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elev[0].scoala)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elev[0].parinte)
+               
+            </th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Parinte)
+        @foreach (var item in Model.Elev)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.nume)  
+                    @Html.DisplayFor(modelItem => item.nume)
                     @Html.DisplayFor(modelItem => item.prenume)
                 </td>
-             
+        
+                <td>
+                    @Html.DisplayFor(modelItem => item.varsta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clasa)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.nr_tel)
                 </td>
@@ -112,7 +130,13 @@
                     @Html.DisplayFor(modelItem => item.email)
                 </td>
                 <td>
-                
+                    @Html.DisplayFor(modelItem => item.scoala)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parinte.nume)
+                    @Html.DisplayFor(modelItem => item.parinte.prenume)
+                </td>
+                <td>
                     <a asp-page="./Edit" asp-route-id="@item.id" class="button edit">Editare</a>
                     <a asp-page="./Details" asp-route-id="@item.id" class="button details">Detalii</a>
                     <a asp-page="./Delete" asp-route-id="@item.id" class="button delete">Ștergere</a>

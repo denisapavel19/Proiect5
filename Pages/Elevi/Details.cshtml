@@ -1,0 +1,105 @@
+﻿@page
+@model Proiect5.Pages.Elevi.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1, h4 {
+        color: #fff;
+    }
+
+    dl {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #fff;
+    }
+
+    dt, dd {
+        color: #fff;
+    }
+
+    .button.edit,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.edit:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Detalii elev</h1>
+
+<div>
+    <h4>Elev</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.prenume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.prenume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.varsta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.varsta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.clasa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.clasa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.nr_tel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.nr_tel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.scoala)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.scoala)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Elev.parinte)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Elev.parinte.id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Elev?.id" class="button edit">Editează</a> |
+    <a asp-page="./Index" class="button back">Înapoi</a>
+</div>

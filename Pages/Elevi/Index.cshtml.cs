@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Proiect5.Data;
 using Proiect5.Models;
 
-namespace Proiect5.Pages.Parinti
+namespace Proiect5.Pages.Elevi
 {
     public class IndexModel : PageModel
     {
@@ -19,15 +19,15 @@ namespace Proiect5.Pages.Parinti
             _context = context;
         }
 
-        public IList<Parinte> Parinte { get;set; } = default!;
+        public IList<Elev> Elev { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Parinte != null)
+            if (_context.Elev != null)
             {
-                Parinte = await _context.Parinte.ToListAsync();
+                Elev = await _context.Elev
+                .Include(e => e.parinte).ToListAsync();
             }
         }
-        
     }
 }
