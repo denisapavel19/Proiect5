@@ -1,0 +1,97 @@
+﻿@page
+@model Proiect5.Pages.Parinti.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    tbody tr:last-child {
+        background-color: #ffc0cb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f0e6f5;
+    }
+
+    th, td {
+        color: #fff;
+    }
+
+    .button.create,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.create:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Adaugă părinte</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Parinte.nume" class="control-label"></label>
+                <input asp-for="Parinte.nume" class="form-control" />
+                <span asp-validation-for="Parinte.nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parinte.prenume" class="control-label"></label>
+                <input asp-for="Parinte.prenume" class="form-control" />
+                <span asp-validation-for="Parinte.prenume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parinte.nr_tel" class="control-label"></label>
+                <input asp-for="Parinte.nr_tel" class="form-control" />
+                <span asp-validation-for="Parinte.nr_tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parinte.email" class="control-label"></label>
+                <input asp-for="Parinte.email" class="form-control" />
+                <span asp-validation-for="Parinte.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adaugă" class="btn btn-primary button create" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index" class="button back">Înapoi</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
