@@ -10,5 +10,6 @@
         public Profesor? profesor { set; get; }
         public int? materieid { set; get; }
         public Materie? materie { set; get; }
+        public ICollection<Programare> programare { get; set; }
     }
 }

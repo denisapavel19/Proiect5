@@ -1,0 +1,89 @@
+﻿@page
+@model Proiect5.Pages.Programari.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1, h2, h3 {
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    tbody tr:last-child {
+        background-color: #ffc0cb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f0e6f5;
+    }
+
+    th, td {
+        color: #fff;
+    }
+
+    input[type="submit"] {
+        background-color: #d8bf;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #ffb6c1;
+        }
+
+    .button.create,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.create:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Șterge programare</h1>
+
+<h3>Ești sigur că vrei să ștergi?</h3>
+<div>
+    <h4>Programare</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Programare.data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Programare.data)
+        </dd>
+        
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Programare.id" />
+        <input type="submit" value="Șterge" class="btn btn-danger" /> |
+        <a asp-page="./Index" class="button back">Înapoi</a>
+    </form>
+</div>
