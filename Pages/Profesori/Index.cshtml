@@ -1,0 +1,139 @@
+﻿@page
+@model Proiect5.Pages.Profesori.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+
+    table, th, td {
+        border: 1px solid #d8bf;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        color: #fff;
+    }
+
+    thead {
+        background-color: #ffc0cb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #d8bfd8;
+    }
+
+    a.button.create {
+        background-color: #d8bf;
+    }
+
+        a.button.create:hover {
+            background-color: #d8bf;
+        }
+
+    a.button {
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        a.button.edit {
+            background-color: #d8bf;
+        }
+
+        a.button.details {
+            background-color: #d8bf;
+        }
+
+        a.button.delete {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Listă profesori</h1>
+
+<p>
+    <a asp-page="Create" class="button create">
+        Adaugă profesor
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor[0].nume)
+                @Html.DisplayNameFor(model => model.Profesor[0].prenume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor[0].specializare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor[0].nr_tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor[0].adresa_sediu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesor[0].adresa_zoom)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Profesor)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nume)
+                    @Html.DisplayFor(modelItem => item.prenume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.specializare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nr_tel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adresa_sediu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adresa_zoom)
+                </td>
+                
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.id" class="button edit">Editare</a>
+                    <a asp-page="./Details" asp-route-id="@item.id" class="button details">Detalii</a>
+                    <a asp-page="./Delete" asp-route-id="@item.id" class="button delete">Ștergere</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
