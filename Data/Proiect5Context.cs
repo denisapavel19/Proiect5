@@ -17,5 +17,7 @@ namespace Proiect5.Data
         public DbSet<Proiect5.Models.Parinte> Parinte { get; set; } = default!;
 
         public DbSet<Proiect5.Models.Elev>? Elev { get; set; }
+
+        public DbSet<Proiect5.Models.SedintaMeditatie>? SedintaMeditatie { get; set; }
     }
 }
