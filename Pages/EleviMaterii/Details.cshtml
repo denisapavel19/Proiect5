@@ -1,0 +1,70 @@
+﻿@page
+@model Proiect5.Pages.EleviMaterii.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1, h4 {
+        color: #fff;
+    }
+
+    dl {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #fff;
+    }
+
+    dt, dd {
+        color: #fff;
+    }
+
+    .button.edit,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.edit:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Detalii</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ElevMaterie.data_inscriere)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ElevMaterie.data_inscriere)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ElevMaterie.nota)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ElevMaterie.nota)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ElevMaterie?.id" class="button edit">Editează</a> |
+    <a asp-page="./Index" class="button back">Înapoi</a>
+</div>

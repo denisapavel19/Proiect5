@@ -14,7 +14,8 @@ namespace Proiect5.Models
         public string? scoala { set; get; }
         public int? parinteid { set; get; }
         public Parinte? parinte { set; get; }
-        
+        public ICollection<ElevMaterie> elevmaterie { get; set; }
+
     }
 }
 
