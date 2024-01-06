@@ -10,5 +10,6 @@
         public string email { set; get; }
         public string adresa_sediu { set; get; }
         public string adresa_zoom { set; get; }
+        public ICollection<MaterieProfesor> materieprofesor { get; set; }
     }
 }
