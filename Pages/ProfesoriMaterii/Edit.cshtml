@@ -1,0 +1,117 @@
+﻿@page
+@model Proiect5.Pages.ProfesoriMaterii.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    tbody tr:last-child {
+        background-color: #ffc0cb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f0e6f5;
+    }
+
+    th, td {
+        color: #fff;
+    }
+
+    input[type="submit"] {
+        background-color: #d8bf;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #ffb6c1;
+        }
+
+    .button.create,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.create:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Editare detalii</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProfesorMaterie.id" />
+            <div class="form-group">
+                <label asp-for="ProfesorMaterie.sedinta_fizica" class="control-label"></label>
+                <input asp-for="ProfesorMaterie.sedinta_fizica" class="form-control" />
+                <span asp-validation-for="ProfesorMaterie.sedinta_fizica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfesorMaterie.sedinta_online" class="control-label"></label>
+                <input asp-for="ProfesorMaterie.sedinta_online" class="form-control" />
+                <span asp-validation-for="ProfesorMaterie.sedinta_online" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfesorMaterie.tarif" class="control-label"></label>
+                <input asp-for="ProfesorMaterie.tarif" class="form-control" />
+                <span asp-validation-for="ProfesorMaterie.tarif" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ProfesorMaterie.profesorid" class="control-label"></label>
+                <select asp-for="ProfesorMaterie.profesorid" class="form-control" asp-items="ViewBag.profesorid"></select>
+                <span asp-validation-for="ProfesorMaterie.profesorid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfesorMaterie.materieid" class="control-label"></label>
+                <select asp-for="ProfesorMaterie.materieid" class="form-control" asp-items="ViewBag.materieid"></select>
+                <span asp-validation-for="ProfesorMaterie.materieid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvează" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="button back">Înapoi</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

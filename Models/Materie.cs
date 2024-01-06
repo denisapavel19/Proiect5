@@ -6,5 +6,6 @@
         public string denumire { set; get; }
         public string nivel { set; get; }
         public string clasa { set; get; }
+        public ICollection<ProfesorMaterie> profesormaterie { get; set; }
     }
 }
