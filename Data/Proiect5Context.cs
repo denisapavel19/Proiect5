@@ -21,5 +21,7 @@ namespace Proiect5.Data
         public DbSet<Proiect5.Models.SedintaMeditatie>? SedintaMeditatie { get; set; }
 
         public DbSet<Proiect5.Models.Profesor>? Profesor { get; set; }
+
+        public DbSet<Proiect5.Models.Materie>? Materie { get; set; }
     }
 }
