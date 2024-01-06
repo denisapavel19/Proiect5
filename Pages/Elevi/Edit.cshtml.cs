@@ -36,7 +36,7 @@ namespace Proiect5.Pages.Elevi
                 return NotFound();
             }
             Elev = elev;
-           ViewData["parinteid"] = new SelectList(_context.Parinte, "id", "id");
+           ViewData["parinteid"] = new SelectList(_context.Parinte, "id", "nume");
             return Page();
         }
 
