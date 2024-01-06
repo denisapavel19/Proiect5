@@ -1,0 +1,70 @@
+﻿@page
+@model Proiect5.Pages.Reviews.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+        color: #fff;
+    }
+
+    h1, h4 {
+        color: #fff;
+    }
+
+    dl {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #fff;
+    }
+
+    dt, dd {
+        color: #fff;
+    }
+
+    .button.edit,
+    .button.back {
+        background-color: #d8bf;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        .button.edit:hover,
+        .button.back:hover {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Detalii</h1>
+
+<div>
+    <h4>Review</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Review.feedback)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Review.feedback)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Review.nota)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Review.nota)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Review?.id" class="button edit">Editează</a> |
+    <a asp-page="./Index" class="button back">Înapoi</a>
+</div>

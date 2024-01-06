@@ -1,5 +1,5 @@
 ﻿@page
-@model Proiect5.Pages.Profesori.DeleteModel
+@model Proiect5.Pages.Reviews.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -65,59 +65,30 @@
             background-color: #d8bf;
         }
 </style>
-<h1>Ștergere profesor</h1>
+<h1>Șterge review</h1>
 
 <h3>Ești sigur că vrei să ștergi?</h3>
 <div>
-    <h4>Profesor</h4>
+    <h4>Review</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.nume)
+            @Html.DisplayNameFor(model => model.Review.feedback)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.nume)
+            @Html.DisplayFor(model => model.Review.feedback)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.prenume)
+            @Html.DisplayNameFor(model => model.Review.nota)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.prenume)
+            @Html.DisplayFor(model => model.Review.nota)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.specializare)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.specializare)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.nr_tel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.nr_tel)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.adresa_sediu)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.adresa_sediu)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor.adresa_zoom)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.adresa_zoom)
-        </dd>
+        
     </dl>
-
+    
     <form method="post">
-        <input type="hidden" asp-for="Profesor.id" />
+        <input type="hidden" asp-for="Review.id" />
         <input type="submit" value="Șterge" class="btn btn-danger" /> |
         <a asp-page="./Index" class="button back">Înapoi</a>
     </form>

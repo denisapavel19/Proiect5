@@ -11,5 +11,6 @@
         public string adresa_sediu { set; get; }
         public string adresa_zoom { set; get; }
         public ICollection<MaterieProfesor> materieprofesor { get; set; }
+        public ICollection<Review>? review { get; set; }
     }
 }

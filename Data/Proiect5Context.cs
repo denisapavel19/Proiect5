@@ -25,5 +25,7 @@ namespace Proiect5.Data
         public DbSet<Proiect5.Models.Materie>? Materie { get; set; }
 
         public DbSet<Proiect5.Models.MaterieProfesor>? MaterieProfesor { get; set; }
+
+        public DbSet<Proiect5.Models.Review>? Review { get; set; }
     }
 }

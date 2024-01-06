@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proiect5.Data;
 
@@ -11,9 +12,10 @@ using Proiect5.Data;
 namespace Proiect5.Migrations
 {
     [DbContext(typeof(Proiect5Context))]
-    partial class Proiect5ContextModelSnapshot : ModelSnapshot
+    [Migration("20240106191438_Review")]
+    partial class Review
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -209,10 +211,10 @@ namespace Proiect5.Migrations
                     b.Property<int>("nota")
                         .HasColumnType("int");
 
-                    b.Property<int?>("parinteid")
+                    b.Property<int>("parinteid")
                         .HasColumnType("int");
 
-                    b.Property<int?>("profesorid")
+                    b.Property<int>("profesorid")
                         .HasColumnType("int");
 
                     b.HasKey("id");
@@ -271,11 +273,15 @@ namespace Proiect5.Migrations
                 {
                     b.HasOne("Proiect5.Models.Parinte", "parinte")
                         .WithMany("review")
-                        .HasForeignKey("parinteid");
+                        .HasForeignKey("parinteid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Proiect5.Models.Profesor", "profesor")
                         .WithMany("review")
-                        .HasForeignKey("profesorid");
+                        .HasForeignKey("profesorid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("parinte");
 

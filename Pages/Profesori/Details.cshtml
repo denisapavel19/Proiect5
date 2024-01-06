@@ -12,30 +12,21 @@
         color: #fff;
     }
 
-    h1 {
+    h1, h4 {
         color: #fff;
     }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
+    dl {
         margin-top: 20px;
         padding: 20px;
+        border: 1px solid #fff;
     }
 
-    tbody tr:last-child {
-        background-color: #ffc0cb;
-    }
-
-    tbody tr:nth-child(even) {
-        background-color: #f0e6f5;
-    }
-
-    th, td {
+    dt, dd {
         color: #fff;
     }
 
-    .button.create,
+    .button.edit,
     .button.back {
         background-color: #d8bf;
         color: #fff;
@@ -47,68 +38,62 @@
         cursor: pointer;
     }
 
-        .button.create:hover,
+        .button.edit:hover,
         .button.back:hover {
             background-color: #d8bf;
         }
 </style>
-<h1>Adaugă profesori</h1>
-
-<h4>Profesor</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Profesor.nume" class="control-label"></label>
-                <input asp-for="Profesor.nume" class="form-control" />
-                <span asp-validation-for="Profesor.nume" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profesor.prenume" class="control-label"></label>
-                <input asp-for="Profesor.prenume" class="form-control" />
-                <span asp-validation-for="Profesor.prenume" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profesor.specializare" class="control-label"></label>
-                <input asp-for="Profesor.specializare" class="form-control" />
-                <span asp-validation-for="Profesor.specializare" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profesor.nr_tel" class="control-label"></label>
-                <input asp-for="Profesor.nr_tel" class="form-control" />
-                <span asp-validation-for="Profesor.nr_tel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profesor.email" class="control-label"></label>
-                <input asp-for="Profesor.email" class="form-control" />
-                <span asp-validation-for="Profesor.email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profesor.adresa_sediu" class="control-label"></label>
-                <input asp-for="Profesor.adresa_sediu" class="form-control" />
-                <span asp-validation-for="Profesor.adresa_sediu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profesor.adresa_zoom" class="control-label"></label>
-                <input asp-for="Profesor.adresa_zoom" class="form-control" />
-                <span asp-validation-for="Profesor.adresa_zoom" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Adaugă" class="btn btn-primary button create" />
-            </div>
-        </form>
-    </div>
-</div>
+<h1>Detalii profesori</h1>
 
 <div>
-    <a asp-page="Index" class="button back">Înapoi</a>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.prenume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.prenume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.specializare)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.specializare)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.nr_tel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.nr_tel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.adresa_sediu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.adresa_sediu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesor.adresa_zoom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesor.adresa_zoom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Profesor?.id" class="button edit">Editează</a> |
+    <a asp-page="./Index" class="button back">Înapoi</a>
 </div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
