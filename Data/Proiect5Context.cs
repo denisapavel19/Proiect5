@@ -31,5 +31,7 @@ namespace Proiect5.Data
         public DbSet<Proiect5.Models.ElevMaterie>? ElevMaterie { get; set; }
 
         public DbSet<Proiect5.Models.Programare>? Programare { get; set; }
+
+        public DbSet<Proiect5.Models.ParticipareElev>? ParticipareElev { get; set; }
     }
 }

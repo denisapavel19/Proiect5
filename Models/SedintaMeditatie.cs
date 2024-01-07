@@ -5,5 +5,6 @@
         public int id { set; get; }
         public DateTime inceput { set; get; }
         public DateTime sfarsit { set; get; }
+        public ICollection<ParticipareElev> participareelev { get; set; }
     }
 }
