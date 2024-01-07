@@ -1,12 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Proiect5.Data;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Proiect5Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Proiect5Context") ?? throw new InvalidOperationException("Connection string 'Proiect5Context' not found.")));
+builder.Services.AddDbContext<AutentificareContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("AutentificareContext") ?? throw new InvalidOperationException("Connectionstring 'AutentificareContext' not found.")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<AutentificareContext>();
 
 var app = builder.Build();
 
@@ -22,6 +28,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
