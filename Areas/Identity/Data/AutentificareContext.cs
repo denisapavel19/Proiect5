@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Proiect5.Models;
 
 namespace Proiect5.Data;
 
@@ -10,6 +11,7 @@ public class AutentificareContext : IdentityDbContext<IdentityUser>
         : base(options)
     {
     }
+   
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Proiect5.Data;
 using Proiect5.Models;
 
+
 namespace Proiect5.Pages.Profesori
 {
     public class IndexModel : PageModel
