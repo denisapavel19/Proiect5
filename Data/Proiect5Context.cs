@@ -9,7 +9,7 @@ namespace Proiect5.Data
 {
     public class Proiect5Context : DbContext
     {
-        public Proiect5Context (DbContextOptions<Proiect5Context> options)
+        public Proiect5Context(DbContextOptions<Proiect5Context> options)
             : base(options)
         {
         }
@@ -33,5 +33,15 @@ namespace Proiect5.Data
         public DbSet<Proiect5.Models.Programare>? Programare { get; set; }
 
         public DbSet<Proiect5.Models.ParticipareElev>? ParticipareElev { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Programare>()
+     .HasOne(p => p.materieprofesor)
+     .WithMany(mp => mp.programare)
+     .HasForeignKey(p => p.materieprofesorid)
+     .OnDelete(DeleteBehavior.NoAction);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
