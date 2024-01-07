@@ -1,0 +1,121 @@
+﻿@page
+@model Proiect5.Pages.ListaProfesoriMateriiModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #d8bfd8;
+    }
+
+    h1 {
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #d8bf;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        color: #fff;
+    }
+
+    thead {
+        background-color: #ffc0cb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    a.button.create {
+        background-color: #d8bf;
+    }
+
+        a.button.create:hover {
+            background-color: #d8bf;
+        }
+
+    a.button {
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+        a.button.edit {
+            background-color: #d8bf;
+        }
+
+        a.button.details {
+            background-color: #d8bf;
+        }
+
+        a.button.delete {
+            background-color: #d8bf;
+        }
+</style>
+<h1>Listă profesori și materii</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Profesor
+            </th>
+            <th>
+                Materie
+            </th>
+            <th>
+                Ședință fizică
+            </th>
+            <th>
+                Ședință online
+            </th>
+            <th>
+                Tarif
+            </th>
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListaProfesoriMaterii)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.materie.denumire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.profesor.nume)
+                    @Html.DisplayFor(modelItem => item.profesor.prenume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sedinta_fizica)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sedinta_online)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tarif)
+                </td>
+                </tr>
+        }
+    </tbody>
+</table>
